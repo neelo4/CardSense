@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import { LogBox, Platform } from 'react-native';
+
+if (Platform.OS === 'web') {
+  require('./src/styles/tailwind.css');
+}
+
+if (__DEV__) {
+  LogBox.ignoreLogs(['Cannot record touch end without a touch start.']);
+}
+import { AppProviders } from './src/core/providers/AppProviders';
+import { CardSenseApp } from './src/core/CardSenseApp';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppProviders>
+      <CardSenseApp />
+    </AppProviders>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

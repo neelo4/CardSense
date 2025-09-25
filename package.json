@@ -6,16 +6,30 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:web:css": "tailwindcss -i ./global.css -o ./src/styles/tailwind.css --minify",
+    "build:web": "npm run build:web:css && expo export --platform web --output-dir dist"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~6.1.2",
+    "@tanstack/react-query": "^5.90.2",
+    "@tanstack/react-query-devtools": "^5.90.2",
+    "@xstate/react": "^6.0.0",
     "expo": "~54.0.10",
     "expo-status-bar": "~3.0.8",
+    "nativewind": "^4.2.1",
     "react": "19.1.0",
-    "react-native": "0.81.4"
+    "react-dom": "19.1.0",
+    "react-error-boundary": "^6.0.0",
+    "react-native": "0.81.4",
+    "react-native-gesture-handler": "^2.28.0",
+    "react-native-web": "^0.21.0",
+    "xstate": "^5.22.0"
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
+    "babel-preset-expo": "^54.0.3",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.9.2"
   },
   "private": true
